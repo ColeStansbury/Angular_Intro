@@ -1,0 +1,9 @@
+<header>
+  <h1>Sign up</h1>
+</header>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <label>Username</label><input formControlName="username" type="text" for="username" /><br>
+  <label>Password</label><input formControlName="password" type="password" for="password"/>
+  <div *ngIf="form.get('password').hasError('pattern')">Invalid password</div>
+  <button type="submit" [disabled]="!form.valid" >Login</button>
+</form>
